@@ -1,39 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/answer_button.dart';
 import 'package:flutter_quiz/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Questions extends StatefulWidget {
   const Questions({super.key});
   @override
   State<Questions> createState() {
-    return ListOfQuestions();
+    return _ListOfQuestion();
   }
 }
 
-class ListOfQuestions extends State<Questions> {
+class _ListOfQuestion extends State<Questions> {
+  var currentQuestionIndex = 0;
+  void answerQuestion() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
   @override
   Widget build(context) {
-    final currentquestion = questions[0];
+    final currentquestion = questions[currentQuestionIndex];
     return Center(
       child: SizedBox(
         width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              currentquestion.text,
-              style: const TextStyle(
-                // backgroundColor: Colors.white,
-                color: Colors.white,
+        child: Container(
+          // padding:const EdgeInsets.all(20), // do same as margin here
+          margin: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                currentquestion.text,
+                style: GoogleFonts.lato(
+                  color: const Color.fromARGB(255, 210, 155, 240),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  // letterSpacing: 0.5,
+                ),
+                textAlign: TextAlign.center,
+              ), //questions here
+              const SizedBox(height: 30),
+              ...currentquestion.getShuffledAnswers().map(
+                (answer) {
+                  return AnswerButton(answer, answerQuestion);
+                },
               ),
-            ), //questions here
-            const SizedBox(height: 30),
-            ...currentquestion.answers.map(
-              (answer) {
-                return AnswerButton(answer, () {});
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
