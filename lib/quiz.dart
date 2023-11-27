@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/question_screen.dart';
+import 'package:flutter_quiz/result_screen.dart';
 import 'package:flutter_quiz/welcome_screen.dart';
 
 const List<Color> bgColors = [
@@ -15,10 +17,16 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
 
   void chooseAnswer(String ans) {
     selectedAnswers.add(ans);
+    if (selectedAnswers.length == questions.length) {
+        setState(() {
+        activeScreen = const ResultScreen();
+        selectedAnswers = [];
+      });
+    }
   }
 
   Widget? activeScreen; // welcome screen or question screen
