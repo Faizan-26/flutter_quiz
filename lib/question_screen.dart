@@ -4,7 +4,9 @@ import 'package:flutter_quiz/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Questions extends StatefulWidget {
-  const Questions({Key? key}) : super(key: key);
+  const Questions(this.onSelect, {Key? key}) : super(key: key);
+
+  final void Function(String answer) onSelect;
 
   @override
   State<Questions> createState() {
@@ -17,7 +19,8 @@ class _ListOfQuestion extends State<Questions> {
   int currentQuestionIndex = 0;
 
   // Function to handle the answer submission
-  void answerQuestion() {
+  void answerQuestion(String selectedans) {
+    widget.onSelect(selectedans);
     setState(() {
       currentQuestionIndex++;
     });
@@ -61,7 +64,12 @@ class _ListOfQuestion extends State<Questions> {
               // Display the shuffled options as answer buttons
               ...currentQuestion.getShuffledAnswers().map(
                 (answer) {
-                  return AnswerButton(answer, answerQuestion);
+                  return AnswerButton(
+                    answer,
+                    () {
+                      answerQuestion(answer);
+                    },
+                  );
                 },
               ),
             ],

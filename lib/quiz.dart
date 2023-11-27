@@ -15,22 +15,26 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  Widget? activeScreen ; // welcome screen or question screen
+  final List<String> selectedAnswers = [];
 
+  void chooseAnswer(String ans) {
+    selectedAnswers.add(ans);
+  }
+
+  Widget? activeScreen; // welcome screen or question screen
   @override
   void initState() {
     super.initState();
-     activeScreen = WelcomeScreen(switchScreen);
+    activeScreen = WelcomeScreen(switchScreen);
   }
 
   void switchScreen() {
     setState(
       () {
-        activeScreen = const Questions();
+        activeScreen = Questions(chooseAnswer);
       },
     );
   }
-  
 
   @override
   Widget build(context) {
