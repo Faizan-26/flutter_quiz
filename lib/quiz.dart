@@ -22,8 +22,8 @@ class _QuizAppState extends State<QuizApp> {
   void chooseAnswer(String ans) {
     selectedAnswers.add(ans);
     if (selectedAnswers.length == questions.length) {
-        setState(() {
-        activeScreen = const ResultScreen();
+      setState(() {
+        activeScreen = ResultScreen(chosenAnswers: selectedAnswers);
         selectedAnswers = [];
       });
     }
