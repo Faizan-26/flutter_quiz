@@ -12,7 +12,10 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Your Answers X out of Y Questions"),
+            const Text(
+              "Your Answers X out of Y Questions",
+              style: TextStyle(),
+            ),
             const SizedBox(height: 30),
             const Text("LIST OF ANSWERS AND QUESTIONS"),
             const SizedBox(height: 30),
