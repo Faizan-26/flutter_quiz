@@ -18,7 +18,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           Text(
-            "Lets learn flutter this way!",
+            "Lets me ask you some flutter !",
             style: GoogleFonts.lato(
               color: Colors.white,
               fontSize: 24,
