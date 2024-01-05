@@ -5,9 +5,8 @@ import 'package:flutter_quiz/result_screen.dart';
 import 'package:flutter_quiz/welcome_screen.dart';
 
 const List<Color> bgColors = [
-  Color.fromARGB(255, 185, 44, 241),
-  Color.fromARGB(255, 118, 14, 159),
-  Color.fromARGB(255, 80, 1, 111),
+  Color.fromARGB(255, 25, 178, 238),
+  Color.fromARGB(255, 21, 236, 229),
 ];
 
 class QuizApp extends StatefulWidget {
@@ -17,13 +16,16 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  List<String> selectedAnswers = [];
+  // _ makes it private
+  List<String> selectedAnswers = []; // list of selected answers
 
   void chooseAnswer(String ans) {
-    selectedAnswers.add(ans);
+    selectedAnswers.add(ans); // .add
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = ResultScreen(chosenAnswers: selectedAnswers);
+        activeScreen = ResultScreen(
+            chosenAnswers: selectedAnswers,
+            isRestartButtonPressed: restartQuiz);
         selectedAnswers = [];
       });
     }
@@ -34,6 +36,12 @@ class _QuizAppState extends State<QuizApp> {
   void initState() {
     super.initState();
     activeScreen = WelcomeScreen(switchScreen);
+  }
+
+  void restartQuiz() {
+    setState(() {
+      activeScreen = Questions(chooseAnswer);
+    });
   }
 
   void switchScreen() {

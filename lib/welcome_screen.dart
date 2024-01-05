@@ -10,6 +10,7 @@ class WelcomeScreen extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             "assets/images/quiz-logo.png",
@@ -18,11 +19,12 @@ class WelcomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 50),
           Text(
-            "Lets me ask you some flutter !",
+            "Lets me ask you some flutter basic concepts!",
             style: GoogleFonts.lato(
               color: Colors.white,
               fontSize: 24,
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
           OutlinedButton.icon(

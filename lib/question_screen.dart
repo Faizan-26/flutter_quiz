@@ -11,7 +11,7 @@ class Questions extends StatefulWidget {
   @override
   State<Questions> createState() {
     return _ListOfQuestion();
-  }
+  } 
 }
 
 class _ListOfQuestion extends State<Questions> {
@@ -20,7 +20,7 @@ class _ListOfQuestion extends State<Questions> {
 
   // Function to handle the answer submission
   void answerQuestion(String selectedans) {
-    widget.onSelect(selectedans);
+    widget.onSelect(selectedans); // widget is used to access the widget class  widget is build in state class that we extend
     setState(() {
       currentQuestionIndex++;
     });
@@ -50,7 +50,7 @@ class _ListOfQuestion extends State<Questions> {
               Text(
                 currentQuestion.text,
                 style: GoogleFonts.lato(
-                  color: const Color.fromARGB(255, 210, 155, 240),
+                  color: const Color.fromARGB(255, 60, 53, 53),
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   // letterSpacing: 0.5,
@@ -60,13 +60,13 @@ class _ListOfQuestion extends State<Questions> {
 
               // Add some space between the question and the options
               const SizedBox(height: 30),
-
+              // ... is a spread operator which is used to expand the list
               // Display the shuffled options as answer buttons
               ...currentQuestion.getShuffledAnswers().map(
                 (answer) {
                   return AnswerButton(
                     answer,
-                    () {
+                    () { // onTap
                       answerQuestion(answer);
                     },
                   );
