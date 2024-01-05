@@ -3,6 +3,7 @@ import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/question_screen.dart';
 import 'package:flutter_quiz/result_screen.dart';
 import 'package:flutter_quiz/welcome_screen.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 const List<Color> bgColors = [
   Color.fromARGB(255, 25, 178, 238),
@@ -57,6 +58,15 @@ class _QuizAppState extends State<QuizApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: const Center(
+            child: Text(
+              "Flutter Quiz",
+              textAlign: TextAlign.center,
+         //     style: TextStyle(fontFamily: GoogleFonts.lato),
+            ),
+          ),
+        ),
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

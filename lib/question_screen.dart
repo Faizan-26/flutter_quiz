@@ -79,13 +79,13 @@ class _ListOfQuestion extends State<Questions> {
     );
   }
 }
-//
-//In this code, we have a `Questions` widget that displays a list of questions. Each question has a text and a list of possible answers. The `AnswerButton` widget is used to display the answers.
-//
-//The `_ListOfQuestion` stateful widget manages the state of the current question index. When the user selects an answer, the `answerQuestion` function is called, which increments the current question index.
-//
-//The `build` method of the `_ListOfQuestion` widget creates a `Column` widget with the question text and the answer buttons. The `Column` widget is wrapped in a `Container` widget to add padding and margin.
-//
-//The `Text` widget is used to display the question text, and the `AnswerButton` widgets are created using the `map` function on the list of shuffled answers.
-//
-//The `SizedBox` widget with `height: 30` is used to add some space between the question and the answer buttons..</s>
+// //
+// //In this code, we have a `Questions` widget that displays a list of questions. Each question has a text and a list of possible answers. The `AnswerButton` widget is used to display the answers.
+// //
+// //The `_ListOfQuestion` stateful widget manages the state of the current question index. When the user selects an answer, the `answerQuestion` function is called, which increments the current question index.
+// //
+// //The `build` method of the `_ListOfQuestion` widget creates a `Column` widget with the question text and the answer buttons. The `Column` widget is wrapped in a `Container` widget to add padding and margin.
+// //
+// //The `Text` widget is used to display the question text, and the `AnswerButton` widgets are created using the `map` function on the list of shuffled answers.
+// //
+// //The `SizedBox` widget with `height: 30` is used to add some space between the question and the answer buttons..</s>
